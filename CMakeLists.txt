@@ -54,6 +54,8 @@ set(SOURCE_FILES
 )
 
 set(DLL_SOURCE_FILES
+    include/temporal_zdepth.hpp
+    src/temporal_zdepth.cpp
     shared_library/targetver.h
     shared_library/pch.h
     shared_library/pch.cpp

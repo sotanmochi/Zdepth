@@ -53,6 +53,14 @@ set(SOURCE_FILES
     src/zdepth.cpp
 )
 
+set(DLL_SOURCE_FILES
+    shared_library/targetver.h
+    shared_library/pch.h
+    shared_library/pch.cpp
+    shared_library/dllmain.cpp
+    shared_library/zdepth_plugin.cpp
+)
+
 include_directories(include)
 
 
@@ -76,6 +84,10 @@ target_include_directories(zdepth PUBLIC
 add_executable(zdepth_test tests/zdepth_test.cpp)
 target_link_libraries(zdepth_test PRIVATE zdepth)
 
+# zdepth shared library
+
+add_library(ZdepthPlugin SHARED ${DLL_SOURCE_FILES})
+target_link_libraries(ZdepthPlugin PRIVATE zdepth)
 
 ################################################################################
 # Install
